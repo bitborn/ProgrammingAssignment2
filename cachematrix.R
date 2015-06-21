@@ -1,7 +1,8 @@
 ##
-## Takes a matrix and returns a list of functions enclosing this scope.
-## These functions can be used to get and set various properties of
-## the underlying matrix, most importantly its inverse.
+## Takes a matrix and returns a list of functions enclosing the function's 
+## scope. These functions can be used to get and set various data in
+## the environment, most importantly `inverse` the cached result of
+## solving the matrix.
 ##
 makeCacheMatrix <- function(x = matrix()) {
     
@@ -44,8 +45,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ##
 ## Returns the inverse of a "cache matrix".
-## It uses the methods defined in makeCacheMatrix to either
-## get the cached inverse, or calculate it if it hasn't been already.
+## It uses the functions defined in `makeCacheMatrix` to either
+## get the matrix's cached inverse, or calculate it, if it 
+## hasn't been already.
 ##
 cacheSolve <- function(x, ...) {
     
