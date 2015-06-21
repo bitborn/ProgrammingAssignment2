@@ -42,13 +42,15 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+##
+## Returns the inverse of a "cache matrix".
+## It uses the methods defined in makeCacheMatrix to either
+## get the cached inverse, or calculate it if it hasn't been already.
+##
 cacheSolve <- function(x, ...) {
-    inverse <- x$getinverse()
- 
+    
     # If we have the value, just return it...
-    if(!is.null(inverse)) {
+    if(!is.null(x$getinverse())) {
         return(inverse)
     }
     
@@ -58,5 +60,5 @@ cacheSolve <- function(x, ...) {
     # Remember to set it before returning
     x$setinverse(inverse)
  
-    return(solution)  
+    return(inverse)  
 }
