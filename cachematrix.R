@@ -49,8 +49,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ##
 cacheSolve <- function(x, ...) {
     
+    inverse <- x$getinverse()
+
     # If we have the value, just return it...
-    if(!is.null(x$getinverse())) {
+    if(!is.null(inverse)) {
         return(inverse)
     }
     
